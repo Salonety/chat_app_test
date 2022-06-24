@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">chat2</string>
+
+    <string name="Welcome_to_app">Welcome</string>
 </resources>

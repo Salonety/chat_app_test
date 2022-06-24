@@ -10,7 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        
     }
 }
 rootProject.name = "chat2"
 include ':app'
+
+
