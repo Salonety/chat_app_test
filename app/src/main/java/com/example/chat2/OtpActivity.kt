@@ -67,8 +67,8 @@ class OtpActivity : AppCompatActivity() {
            resendBtn.isEnabled=true
                 counterTv.isVisible=false
             }
-            override fun onTick(millisUntilFinished: Long) {
-             counterTv.text="seconds Remaining:"+time/1000
+            override fun onTick(timeLeft: Long) {
+             counterTv.text="seconds Remaining:"+timeLeft/1000
             }
 
         }.start()
@@ -79,6 +79,12 @@ class OtpActivity : AppCompatActivity() {
             val credential =
                 PhoneAuthProvider.getCredential(storedVerificationId!!, otpEt.text.toString())
             SignInAuth(credential)
+        }
+        resendBtn.setOnClickListener {
+            resendVerificationCode(PhoneNumber,resendToken)
+            startCounter(6000)
+            progressDialog= createDialog("Sending verification code again",false)
+            progressDialog.show()
         }
         try {
             PhoneNumber = intent.getStringExtra(PHONE_NUMBER)!!
@@ -163,6 +169,8 @@ class OtpActivity : AppCompatActivity() {
                 }
 
             } else {
+                progressDialog= createDialog("Phone number verification failed",false)
+                progressDialog.show()
             }
         }
     }
@@ -176,6 +184,20 @@ class OtpActivity : AppCompatActivity() {
     private fun ShowSignUpActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+    private fun resendVerificationCode(
+        phoneNumber: String,
+        token: PhoneAuthProvider.ForceResendingToken?
+    ) {
+        val optionsBuilder = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(phoneNumber)       // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(this)                 // Activity (for callback binding)
+            .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
+        if (token != null) {
+            optionsBuilder.setForceResendingToken(token) // callback's ForceResendingToken
+        }
+        PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
     }
 }
     fun Context.createDialog(message:String, isCancelable:Boolean):ProgressDialog{

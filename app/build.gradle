@@ -33,8 +33,10 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation 'androidx.core:core-ktx:1.7.0'
+
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -46,7 +48,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.android.material:material:<version>'
     implementation 'com.hbb20:ccp:2.5.0'
-    implementation'androidx.browser:browser:1.4.0'
+    implementation'androidx.browser:browser:1.2.0'
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }

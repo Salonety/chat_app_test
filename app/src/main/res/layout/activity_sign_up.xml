@@ -22,7 +22,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Please provided your name and an profile photo"
+        android:text="please Enter your name and set a profile photo"
         android:textSize="16sp" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -53,6 +53,102 @@
         android:maxLines="1"
         android:singleLine="true"
         android:textSize="16sp" />
+    <EditText
+        android:id="@+id/edt_Gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Gender"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edt_nation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Nationality"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/edt_DOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Date of birth"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Enter your email/gmail"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edt_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="City/Street"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+
+    <EditText
+        android:id="@+id/edt_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="About"
+        android:imeActionLabel="Send"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextBtn"

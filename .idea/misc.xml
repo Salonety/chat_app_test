@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abhay/chat2/app/src/main/res/drawable/ic_baseline_mark_chat_unread_24.xml" value="0.1335" />
         <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_intro.xml" value="0.2" />
         <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_otp.xml" value="0.18840579710144928" />
-        <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_phone_no.xml" value="0.2" />
-        <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_sign_up.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_phone_no.xml" value="0.136" />
+        <entry key="..\:/Users/abhay/chat2/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
       </map>
     </option>
   </component>
