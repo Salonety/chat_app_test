@@ -46,6 +46,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.android.material:material:<version>'
     implementation 'com.hbb20:ccp:2.5.0'
+    implementation'androidx.browser:browser:1.4.0'
 
 
 }
