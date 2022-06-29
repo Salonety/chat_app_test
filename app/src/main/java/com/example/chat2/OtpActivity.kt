@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -129,18 +130,16 @@ class OtpActivity : AppCompatActivity() {
                     ).show()
                 } else if (e is FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
-                    Snackbar.make(
-                        findViewById(android.R.id.content),
-                        "Quota exceeded.",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
+                    Snackbar.make(findViewById(android.R.id.content), "Quota exceeded.", Snackbar.LENGTH_SHORT).show()
+                }else  notifyUserAndRetry("Your Phone Number might be wrong or connection error.Retry again!")
 
 
             }
 
         }
     }
+
+
 
     private fun startPhoneNumberVerification(phoneNumber: String) {
         // [START start_phone_auth]
@@ -174,6 +173,30 @@ class OtpActivity : AppCompatActivity() {
             }
         }
     }
+    private fun notifyUserAndRetry(message: String) {
+        MaterialAlertDialogBuilder(this).apply {
+            setMessage(message)
+            setPositiveButton("Ok") { _, _ ->
+                showLoginActivity()
+            }
+            setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            setCancelable(false)
+            create()
+            show()
+
+
+        }
+
+    }
+    private fun showLoginActivity() {
+        startActivity(
+            Intent(
+                this, phoneNoActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        )
+    }
+
 
     private fun ShowHomeActivity() {
         startActivity(Intent(this, MainActivity::class.java))
@@ -182,9 +205,11 @@ class OtpActivity : AppCompatActivity() {
 
 
     private fun ShowSignUpActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, SignUp::class.java))
         finish()
     }
+
+
     private fun resendVerificationCode(
         phoneNumber: String,
         token: PhoneAuthProvider.ForceResendingToken?
@@ -198,6 +223,10 @@ class OtpActivity : AppCompatActivity() {
             optionsBuilder.setForceResendingToken(token) // callback's ForceResendingToken
         }
         PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
+    }
+
+    override fun onBackPressed() {
+
     }
 }
     fun Context.createDialog(message:String, isCancelable:Boolean):ProgressDialog{
